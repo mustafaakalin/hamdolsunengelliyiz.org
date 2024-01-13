@@ -1,0 +1,30 @@
+<div class="text-gray-600 dark:text-gray-300 pt-36" id="testimonials">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 xl:px-6">
+        <div class="mb-20 space-y-4 px-6 md:px-0">
+            <h2 class="text-center text-2xl font-bold text-gray-800 dark:text-white md:text-4xl">
+                ORTOPEDİK
+            </h2>
+            <p class="text-center">ortopedik engelli insanlar arasında birçok başarılı birey bulunmaktadır. </p>
+        </div>
+        <div class="md:columns-2 lg:columns-3 gap-8 space-y-8">
+            @foreach ($orthopedics as $item)
+                
+            <div
+                class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
+                <div class="flex gap-4">
+                    <img class="w-12 h-12 rounded-full"
+                        src="{{ asset('images/orthopedic/'. $item->image )  }}"
+                        alt="user avatar" width="400" height="400" loading="lazy">
+                    <div>
+                        <h6 class="text-lg font-medium text-gray-700 dark:text-white">{{ $item->name }}</h6>
+                        <p class="text-sm text-gray-500 dark:text-gray-300">{{ $item->title }}</p>
+                    </div>
+                </div>
+                <p class="mt-8">{{ Str::limit($item->desciption,200) }}</p>
+                    <a href="/benioku/{{ Str::slug($item->name . '-' . $item->title) }}" class="strong text-sky-600 hover:text-sky-500">Read More</a>
+            </div>
+            
+            @endforeach
+        </div>
+    </div>
+</div>

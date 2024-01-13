@@ -13,6 +13,42 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+
+Route::get('/ortopedik', function () {
+    return view('orthopedic');
+});
+Route::get('/omurilik', function () {
+    return view('spinal-cord');
+});
+
+Route::get('/gorme', function () {
+    return view('vision');
+});
+
+Route::get('/isitme', function () {
+    return view('hearing');
+});
+
+Route::get('/spastik', function () {
+    return view('spastic');
+});
+
+Route::get('/benioku/{name}', function () {
+    return view('readme');
+});
+
+
+
+Route::get('/ben', function () {
+    return view('about');
 });
