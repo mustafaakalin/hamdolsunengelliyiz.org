@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class orthopedic extends Component
+class Orthopedic extends Component
 {
     /**
      * Create a new component instance.
@@ -22,7 +22,6 @@ class orthopedic extends Component
     public function render(): View|Closure|string
     {
         $orthopedics = \App\Models\Orthopedic::all();
-
-        return view('components.orthopedic', compact('orthopedics'));
+        return view('components.orthopedic' , ['orthopedics' => $orthopedics]);
     }
 }

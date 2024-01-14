@@ -2,16 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\OrthopedicResource\Pages;
-use App\Filament\Resources\OrthopedicResource\RelationManagers;
-use App\Models\Orthopedic;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Set;
+use Filament\Forms\Form;
+use App\Models\Orthopedic;
 use Filament\Tables\Table;
+use Illuminate\Support\Str;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\OrthopedicResource\Pages;
+use App\Filament\Resources\OrthopedicResource\RelationManagers;
 
 class OrthopedicResource extends Resource
 {
@@ -25,34 +27,61 @@ class OrthopedicResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required()
+                    ->unique('orthopedics', 'name',ignoreRecord: true)
+                    ->live()
+                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('description')
+                Forms\Components\TextInput::make('slug')
                     ->required()
+                    ->readOnly ()
                     ->maxLength(255),
+                Forms\Components\Textarea::make('description')
+                    ->required()
+                    ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->directory('images/orthopedics')
                     ->required(),
                 Forms\Components\TextInput::make('twitter')
                     ->maxLength(255),
+                Forms\Components\TextInput::make('user_id')
+                    ->readOnly ()
+                    ->default(auth()->user()->id),
             ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(function (Builder $query) {
+                if (auth()->user()->hasRole('admin')) {
+                    return $query;
+                }
+                return $query->where('user_id', auth()->user()->id);
+            })
             ->columns([
+                Tables\Columns\TextColumn::make('user.name')
+                                         ->searchable(),
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->limit (20)
+                    ->tooltip (fn ($record) => $record->name),
                 Tables\Columns\TextColumn::make('title')
-                    ->searchable(),
+                    ->searchable()
+                    ->limit (20)
+                    ->tooltip (fn ($record) => $record->title),
                 Tables\Columns\TextColumn::make('description')
+                    ->limit (20)
+                    ->tooltip (fn ($record) => $record->description)
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('twitter')
-                    ->searchable(),
+                    ->searchable()
+                    ->limit (20)
+                    ->tooltip (fn ($record) => $record->twitter),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -67,6 +96,7 @@ class OrthopedicResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -89,5 +119,10 @@ class OrthopedicResource extends Resource
             'create' => Pages\CreateOrthopedic::route('/create'),
             'edit' => Pages\EditOrthopedic::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }

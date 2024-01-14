@@ -15,9 +15,16 @@ class About extends Model
     }
 
     protected $fillable = [
+        'user_id',
+        'slug',
         'name',
         'title',
         'description',
         'image',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -6,18 +6,18 @@
 <x-home />
 {{-- home.hero end --}}
 {{-- features --}}
-<x-features />
+{{-- <x-features /> --}}
 {{-- features end --}}
 {{-- stats --}}
-<x-stats />
+{{-- <x-stats /> --}}
 {{-- stats end --}}
 {{-- testimonials --}}
-<x-testimonials />
+{{-- <x-testimonials /> --}}
 {{-- testimonials end --}}
 {{-- calltoaction --}}
-<x-callto-action />
+{{-- <x-callto-action /> --}}
 {{-- calltoaction end --}}
 {{-- blog --}}
-<x-blog />
+{{-- <x-blog /> --}}
 {{-- blog end --}}
 @endsection

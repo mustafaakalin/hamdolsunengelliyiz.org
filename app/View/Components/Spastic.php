@@ -21,6 +21,7 @@ class Spastic extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.spastic');
+        $spastics = \App\Models\Spastic::all();
+        return view('components.spastic' , ['spastic' => $spastics]);
     }
 }

@@ -13,7 +13,10 @@ class AboutPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        if ($user->hasRole('admin')) {
+            return true;
+        }
+        return auth () -> user () -> id === $user -> id;
     }
 
     /**

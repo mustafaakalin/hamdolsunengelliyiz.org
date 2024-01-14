@@ -21,6 +21,7 @@ class Vision extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.vision');
+        $visions = \App\Models\Vision::all();
+        return view('components.vision', ['vision' => $visions] );
     }
 }

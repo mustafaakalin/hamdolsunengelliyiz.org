@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReadmeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,8 +44,14 @@ Route::get('/spastik', function () {
     return view('spastic');
 });
 
-Route::get('/benioku/{name}', function () {
-    return view('readme');
+Route::get('/benioku/{slug}', function ($slug) {
+    return view('readme', [
+        'orthopedic' => \App\Models\Orthopedic::where('slug', $slug)->firstOrFail(),
+        'spinalcord' => \App\Models\Spinalcord::where('slug', $slug)->firstOrFail(),
+        'vision' => \App\Models\Vision::where('slug', $slug)->firstOrFail(),
+        'hearing' => \App\Models\Hearing::where('slug', $slug)->firstOrFail(),
+        'spastic' => \App\Models\Spastic::where('slug', $slug)->firstOrFail(),
+    ]);
 });
 
 

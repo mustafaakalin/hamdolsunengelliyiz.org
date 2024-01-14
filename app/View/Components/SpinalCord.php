@@ -21,6 +21,7 @@ class SpinalCord extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.spinal-cord');
+        $spinalcords = \App\Models\Spinalcord::all();
+        return view('components.spinal-cord', ['spinalcord' => $spinalcords]);
     }
 }
