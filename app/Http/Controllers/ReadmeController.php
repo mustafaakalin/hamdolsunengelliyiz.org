@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vision;
+use App\Models\Hearing;
+use App\Models\Spastic;
+use App\Models\Orthopedic;
+use App\Models\Spinalcord;
 use Illuminate\Http\Request;
 
 class ReadmeController extends Controller
@@ -9,7 +14,7 @@ class ReadmeController extends Controller
 
 
 
-    public $orthopedics;
+    public $orthopedic;
     public $spinalcord;
     public $vision;
     public $hearing;
@@ -18,28 +23,28 @@ class ReadmeController extends Controller
 
 
 
-    public function show()
+
+
+
+
+    public function show($slug)
     {
+        // dd(request()->route()->parameters());
 
 
-        $slug = request()->slug;
-
-
-        $this -> orthopedics = \App\Models\Orthopedic::where('slug', $slug)->firstOrFail();
-        $this -> spinalcord = \App\Models\Spinalcord::where('slug', $slug)->firstOrFail();
-        $this -> vision = \App\Models\Vision::where('slug', $slug)->firstOrFail();
-        $this -> hearing = \App\Models\Hearing::where('slug', $slug)->firstOrFail();
-        $this -> spastic = \App\Models\Spastic::where('slug', $slug)->firstOrFail();
-
+        $this ->orthopedic = Orthopedic::where('slug',$slug)->get();
+        $this ->spinalcord = Spinalcord::where('slug',$slug)->get();
+        $this ->vision = Vision::where('slug',$slug)->get();
+        $this ->hearing = Hearing::where('slug',$slug)->get();
+        $this ->spastic = Spastic::where('slug',$slug)->get();
 
 
         return view('readme', [
-            'orthopedic' => $this -> orthopedics,
-            'spinalcord' => $this -> spinalcord,
-            'vision' => $this -> vision,
-            'hearing' => $this -> hearing,
-            'spastic' => $this -> spastic,
-
+            'orthopedic' => $this ->orthopedic,
+            'spinalcord' => $this ->spinalcord,
+            'vision' => $this ->vision,
+            'hearing' => $this ->hearing,
+            'spastic' => $this ->spastic,
         ]);
 
     }

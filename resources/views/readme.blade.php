@@ -2,290 +2,346 @@
 
 @section('content')
 
-    @if ($orthopedic->count() > 0)
+@if ($orthopedic->count() > 0)
 
-        <div id="solution">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 xl:px-6 pt-36">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-sky-500">
-                    <path fill-rule="evenodd"
-                          d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
-                          clip-rule="evenodd" />
-                    <path fill-rule="evenodd"
-                          d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
-                          clip-rule="evenodd" />
-                </svg>
+@foreach ($orthopedic as $item)
 
-                <div
-                    class="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
-                    <div class="md:5/12 lg:w-1/2">
-                        <img src="{{ asset('images/orthopedic/'.$orthopedic->image) }}" alt="image" loading="lazy" width="" height=""
-                             class="w-full rounded-full" />
-                    </div>
-                    <div class="md:7/12 lg:w-1/2">
-                        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
-                            {{ $orthopedic->name }} <span class="text-primary dark:text-white"></span>
-                        </h2>
-                        <p class="my-8 text-gray-600 dark:text-gray-300">
-                            {{ $orthopedic->title }}
-                        </p>
-                        {{-- twitter --}}
+<div id="{{ $item->name }}">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 xl:px-6 pt-36">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-sky-500">
+            <path fill-rule="evenodd"
+                d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
+                clip-rule="evenodd" />
+            <path fill-rule="evenodd"
+                d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
+                clip-rule="evenodd" />
+        </svg>
 
-                        {{-- twitter account --}}
-                        <a href="{{ $orthopedic->twitter }}" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path
-                                    d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
-                                </path>
-                            </svg>
-                            Follow
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?text={{ $orthopedic->name }}&url={{ url()->current() }}"
-                           target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path
-                                    d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
-                                </path>
-                            </svg>
-                            Tweet at
-                        </a>
-                        <p class="my-8 text-gray-600 dark:text-gray-300">
-                            {{ $orthopedic->description }}
-                        </p>
-                    </div>
-                </div>
+        <div
+            class="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
+            <div class="md:5/12 lg:w-1/2">
+                <img src="{{ asset('storage/'. $item->image) }}" alt="image" loading="lazy" width="" height=""
+                    class="w-full rounded-full" />
+            </div>
+            <div class="md:7/12 lg:w-1/2">
+                <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
+                    {{ $item->name }} <span class="text-primary dark:text-white"></span>
+                </h2>
+                <p class="my-8 text-gray-600 dark:text-gray-300">
+                    {{ $item->title }}
+                </p>
+                {{-- twitter --}}
+
+                {{-- twitter account --}}
+                <a href="{{ $item->twitter }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path
+                            d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
+                        </path>
+                    </svg>
+                    Follow
+                </a>
+                <a href="https://twitter.com/intent/tweet?text={{  $item->name }}&url={{ url()->current() }}"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path
+                            d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
+                        </path>
+                    </svg>
+                    Tweet at
+                </a>
+                <p class="my-8 text-gray-600 dark:text-gray-300">
+                    {{ $item->description }}
+                </p>
             </div>
         </div>
+    </div>
+</div>
 
-    @endif
-    @if ($spinalcord->count() > 0)
+@endforeach
 
-        <div id="solution">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 xl:px-6 pt-36">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-sky-500">
-                    <path fill-rule="evenodd"
-                          d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
-                          clip-rule="evenodd" />
-                    <path fill-rule="evenodd"
-                          d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
-                          clip-rule="evenodd" />
-                </svg>
+@endif
 
-                <div
-                    class="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
-                    <div class="md:5/12 lg:w-1/2">
-                        <img src="{{ asset('images/orthopedic/'.$spinalcord->image) }}" alt="image" loading="lazy" width="" height=""
-                             class="w-full rounded-full" />
-                    </div>
-                    <div class="md:7/12 lg:w-1/2">
-                        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
-                            {{ $spinalcord->name }} <span class="text-primary dark:text-white"></span>
-                        </h2>
-                        <p class="my-8 text-gray-600 dark:text-gray-300">
-                            {{ $spinalcord->title }}
-                        </p>
-                        {{-- twitter --}}
 
-                        {{-- twitter account --}}
-                        <a href="{{ $spinalcord->twitter }}" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path
-                                    d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
-                                </path>
-                            </svg>
-                            Follow
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?text={{ $spinalcord->name }}&url={{ url()->current() }}"
-                           target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path
-                                    d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
-                                </path>
-                            </svg>
-                            Tweet at
-                        </a>
-                        <p class="my-8 text-gray-600 dark:text-gray-300">
-                            {{ $spinalcord->description }}
-                        </p>
-                    </div>
-                </div>
+
+
+@if ($spinalcord->count() > 0)
+
+@foreach ($spinalcord as $item)
+
+<div id="{{ $item->name }}">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 xl:px-6 pt-36">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-sky-500">
+            <path fill-rule="evenodd"
+                d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
+                clip-rule="evenodd" />
+            <path fill-rule="evenodd"
+                d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
+                clip-rule="evenodd" />
+        </svg>
+
+        <div
+            class="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
+            <div class="md:5/12 lg:w-1/2">
+                <img src="{{ asset('storage/'. $item->image) }}" alt="image" loading="lazy" width="" height=""
+                    class="w-full rounded-full" />
+            </div>
+            <div class="md:7/12 lg:w-1/2">
+                <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
+                    {{ $item->name }} <span class="text-primary dark:text-white"></span>
+                </h2>
+                <p class="my-8 text-gray-600 dark:text-gray-300">
+                    {{ $item->title }}
+                </p>
+                {{-- twitter --}}
+
+                {{-- twitter account --}}
+                <a href="{{ $item->twitter }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path
+                            d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
+                        </path>
+                    </svg>
+                    Follow
+                </a>
+                <a href="https://twitter.com/intent/tweet?text={{  $item->name }}&url={{ url()->current() }}"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path
+                            d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
+                        </path>
+                    </svg>
+                    Tweet at
+                </a>
+                <p class="my-8 text-gray-600 dark:text-gray-300">
+                    {{ $item->description }}
+                </p>
             </div>
         </div>
+    </div>
+</div>
 
-    @endif
-    @if ($vision->count() > 0)
+@endforeach
+@endif
 
-        <div id="solution">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 xl:px-6 pt-36">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-sky-500">
-                    <path fill-rule="evenodd"
-                          d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
-                          clip-rule="evenodd" />
-                    <path fill-rule="evenodd"
-                          d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
-                          clip-rule="evenodd" />
-                </svg>
 
-                <div
-                    class="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
-                    <div class="md:5/12 lg:w-1/2">
-                        <img src="{{ asset('images/orthopedic/'.$vision->image) }}" alt="image" loading="lazy" width="" height=""
-                             class="w-full rounded-full" />
-                    </div>
-                    <div class="md:7/12 lg:w-1/2">
-                        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
-                            {{ $vision->name }} <span class="text-primary dark:text-white"></span>
-                        </h2>
-                        <p class="my-8 text-gray-600 dark:text-gray-300">
-                            {{ $vision->title }}
-                        </p>
-                        {{-- twitter --}}
 
-                        {{-- twitter account --}}
-                        <a href="{{ $vision->twitter }}" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path
-                                    d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
-                                </path>
-                            </svg>
-                            Follow
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?text={{ $vision->name }}&url={{ url()->current() }}"
-                           target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path
-                                    d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
-                                </path>
-                            </svg>
-                            Tweet at
-                        </a>
-                        <p class="my-8 text-gray-600 dark:text-gray-300">
-                            {{ $vision->description }}
-                        </p>
-                    </div>
-                </div>
+
+@if ($vision->count() > 0)
+
+@foreach ($vision as $item)
+
+<div id="{{ $item->name }}">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 xl:px-6 pt-36">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-sky-500">
+            <path fill-rule="evenodd"
+                d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
+                clip-rule="evenodd" />
+            <path fill-rule="evenodd"
+                d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
+                clip-rule="evenodd" />
+        </svg>
+
+        <div
+            class="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
+            <div class="md:5/12 lg:w-1/2">
+                @if ($item->image)
+
+                <img src="{{ asset('storage/'. $item->image) }}" alt="image" loading="lazy" width="" height=""
+                    class="w-full rounded-full" />
+                @else
+
+                <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg" alt="image" loading="lazy" width="" height=""
+                    class="w-full rounded-full" />
+                    
+                @endif
+            </div>
+            <div class="md:7/12 lg:w-1/2">
+                <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
+                    {{ $item->name }} <span class="text-primary dark:text-white"></span>
+                </h2>
+                <p class="my-8 text-gray-600 dark:text-gray-300">
+                    {{ $item->title }}
+                </p>
+                {{-- twitter --}}
+
+                {{-- twitter account --}}
+                <a href="{{ $item->twitter }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path
+                            d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
+                        </path>
+                    </svg>
+                    Follow
+                </a>
+                <a href="https://twitter.com/intent/tweet?text={{  $item->name }}&url={{ url()->current() }}"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path
+                            d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
+                        </path>
+                    </svg>
+                    Tweet at
+                </a>
+                <p class="my-8 text-gray-600 dark:text-gray-300">
+                    {{ $item->description }}
+                </p>
             </div>
         </div>
+    </div>
+</div>
 
-    @endif
-    @if ($hearing->count() > 0)
+@endforeach
 
-        <div id="solution">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 xl:px-6 pt-36">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-sky-500">
-                    <path fill-rule="evenodd"
-                          d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
-                          clip-rule="evenodd" />
-                    <path fill-rule="evenodd"
-                          d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
-                          clip-rule="evenodd" />
-                </svg>
+@endif
 
-                <div
-                    class="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
-                    <div class="md:5/12 lg:w-1/2">
-                        <img src="{{ asset('images/orthopedic/'.$hearing->image) }}" alt="image" loading="lazy" width="" height=""
-                             class="w-full rounded-full" />
-                    </div>
-                    <div class="md:7/12 lg:w-1/2">
-                        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
-                            {{ $hearing->name }} <span class="text-primary dark:text-white"></span>
-                        </h2>
-                        <p class="my-8 text-gray-600 dark:text-gray-300">
-                            {{ $hearing->title }}
-                        </p>
-                        {{-- twitter --}}
 
-                        {{-- twitter account --}}
-                        <a href="{{ $hearing->twitter }}" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path
-                                    d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
-                                </path>
-                            </svg>
-                            Follow
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?text={{ $hearing->name }}&url={{ url()->current() }}"
-                           target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path
-                                    d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
-                                </path>
-                            </svg>
-                            Tweet at
-                        </a>
-                        <p class="my-8 text-gray-600 dark:text-gray-300">
-                            {{ $hearing->description }}
-                        </p>
-                    </div>
-                </div>
+
+
+
+@if ($hearing->count() > 0)
+
+@foreach ($hearing as $item)
+
+<div id="{{ $item->name }}">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 xl:px-6 pt-36">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-sky-500">
+            <path fill-rule="evenodd"
+                d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
+                clip-rule="evenodd" />
+            <path fill-rule="evenodd"
+                d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
+                clip-rule="evenodd" />
+        </svg>
+
+        <div
+            class="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
+            <div class="md:5/12 lg:w-1/2">
+                @if ($item->image)
+
+                <img src="{{ asset('storage/'. $item->image) }}" alt="image" loading="lazy" width="" height=""
+                    class="w-full rounded-full" />
+                @else
+
+                <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg" alt="image" loading="lazy" width="" height=""
+                    class="w-full rounded-full" />
+                    
+                @endif
+            </div>
+            <div class="md:7/12 lg:w-1/2">
+                <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
+                    {{ $item->name }} <span class="text-primary dark:text-white"></span>
+                </h2>
+                <p class="my-8 text-gray-600 dark:text-gray-300">
+                    {{ $item->title }}
+                </p>
+                {{-- twitter --}}
+
+                {{-- twitter account --}}
+                <a href="{{ $item->twitter }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path
+                            d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
+                        </path>
+                    </svg>
+                    Follow
+                </a>
+                <a href="https://twitter.com/intent/tweet?text={{  $item->name }}&url={{ url()->current() }}"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path
+                            d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
+                        </path>
+                    </svg>
+                    Tweet at
+                </a>
+                <p class="my-8 text-gray-600 dark:text-gray-300">
+                    {{ $item->description }}
+                </p>
             </div>
         </div>
+    </div>
+</div>
 
-    @endif
-    @if ($spastic->count() > 0)
+@endforeach
+@endif
+@if ($spastic->count() > 0)
 
-        <div id="solution">
-            <div class="max-w-7xl mx-auto px-6 md:px-12 xl:px-6 pt-36">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-sky-500">
-                    <path fill-rule="evenodd"
-                          d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
-                          clip-rule="evenodd" />
-                    <path fill-rule="evenodd"
-                          d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
-                          clip-rule="evenodd" />
-                </svg>
 
-                <div
-                    class="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
-                    <div class="md:5/12 lg:w-1/2">
-                        <img src="{{ asset('images/orthopedic/'.$spastic->image) }}" alt="image" loading="lazy" width="" height=""
-                             class="w-full rounded-full" />
-                    </div>
-                    <div class="md:7/12 lg:w-1/2">
-                        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
-                            {{ $spastic->name }} <span class="text-primary dark:text-white"></span>
-                        </h2>
-                        <p class="my-8 text-gray-600 dark:text-gray-300">
-                            {{ $spastic->title }}
-                        </p>
-                        {{-- twitter --}}
+@foreach ($spastic as $item)
 
-                        {{-- twitter account --}}
-                        <a href="{{ $spastic->twitter }}" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path
-                                    d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
-                                </path>
-                            </svg>
-                            Follow
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?text={{ $spastic->name }}&url={{ url()->current() }}"
-                           target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                                <path
-                                    d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
-                                </path>
-                            </svg>
-                            Tweet at
-                        </a>
-                        <p class="my-8 text-gray-600 dark:text-gray-300">
-                            {{ $spastic->description }}
-                        </p>
-                    </div>
-                </div>
+<div id="{{ $item->name }}">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 xl:px-6 pt-36">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-sky-500">
+            <path fill-rule="evenodd"
+                d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
+                clip-rule="evenodd" />
+            <path fill-rule="evenodd"
+                d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
+                clip-rule="evenodd" />
+        </svg>
+
+        <div
+            class="space-y-6 justify-between text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center">
+            <div class="md:5/12 lg:w-1/2">
+                @if ($item->image)
+
+                <img src="{{ asset('storage/'. $item->image) }}" alt="image" loading="lazy" width="" height=""
+                    class="w-full rounded-full" />
+                @else
+
+                <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg" alt="image" loading="lazy" width="" height=""
+                    class="w-full rounded-full" />
+                    
+                @endif
+            </div>
+            <div class="md:7/12 lg:w-1/2">
+                <h2 class="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
+                    {{ $item->name }} <span class="text-primary dark:text-white"></span>
+                </h2>
+                <p class="my-8 text-gray-600 dark:text-gray-300">
+                    {{ $item->title }}
+                </p>
+                {{-- twitter --}}
+
+                {{-- twitter account --}}
+                <a href="{{ $item->twitter }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path
+                            d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
+                        </path>
+                    </svg>
+                    Follow
+                </a>
+                <a href="https://twitter.com/intent/tweet?text={{  $item->name }}&url={{ url()->current() }}"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path
+                            d="M17.89 5.356a.5.5 0 00-.708-.708l-3.182 3.182a5.98 5.98 0 01-4.243-1.757 5.98 5.98 0 01-1.757-4.243A5.98 5.98 0 018.05.05a5.98 5.98 0 014.243 1.757l3.182-3.182a.5.5 0 00-.708-.708L11.586 1.05a7.98 7.98 0 00-5.657 2.343A7.98 7.98 0 003.586 9.95a7.98 7.98 0 002.343 5.657 7.98 7.98 0 005.657 2.343 7.98 7.98 0 005.657-2.343 7.98 7.98 0 002.343-5.657 7.98 7.98 0 00-2.343-5.657L17.89 5.356z">
+                        </path>
+                    </svg>
+                    Tweet at
+                </a>
+                <p class="my-8 text-gray-600 dark:text-gray-300">
+                    {{ $item->description }}
+                </p>
             </div>
         </div>
+    </div>
+</div>
 
-    @endif
+@endforeach
+@endif
 
+<x-callto-action />
 @endsection

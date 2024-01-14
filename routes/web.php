@@ -44,15 +44,7 @@ Route::get('/spastik', function () {
     return view('spastic');
 });
 
-Route::get('/benioku/{slug}', function ($slug) {
-    return view('readme', [
-        'orthopedic' => \App\Models\Orthopedic::where('slug', $slug)->firstOrFail(),
-        'spinalcord' => \App\Models\Spinalcord::where('slug', $slug)->firstOrFail(),
-        'vision' => \App\Models\Vision::where('slug', $slug)->firstOrFail(),
-        'hearing' => \App\Models\Hearing::where('slug', $slug)->firstOrFail(),
-        'spastic' => \App\Models\Spastic::where('slug', $slug)->firstOrFail(),
-    ]);
-});
+Route::get('benioku/{slug}', [ReadmeController::class, 'show'])->name('readme');
 
 
 

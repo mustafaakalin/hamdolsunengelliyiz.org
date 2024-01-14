@@ -28,7 +28,7 @@ class SpinalcordResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->unique('orthopedics', 'name',ignoreRecord: true)
-                    ->live()
+                    ->live(1000, 250)
                     ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('title')
@@ -43,8 +43,7 @@ class SpinalcordResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
-                    ->directory('images/spinalcords')
-                    ->required(),
+                    ->directory('images/spinalcords'),
                 Forms\Components\TextInput::make('twitter')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('user_id')

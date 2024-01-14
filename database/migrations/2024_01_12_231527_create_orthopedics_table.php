@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('title');
             $table->text('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('twitter')->nullable();
             $table->timestamps();
         });

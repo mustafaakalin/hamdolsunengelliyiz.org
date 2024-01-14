@@ -12,9 +12,18 @@
                 <div
                     class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
                     <div class="flex gap-4">
+
+                        @if ($item->image)
                         <img class="w-12 h-12 rounded-full"
-                             src="{{ asset('storage/'. $item->image )  }}"
-                             alt="user avatar" width="400" height="400" loading="lazy">
+                        src="{{ asset('storage/'. $item->image )  }}"
+                        alt="user avatar" width="400" height="400" loading="lazy">
+    
+                        @else
+                        <img class="w-12 h-12 rounded-full"
+                            src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg"
+                            alt="user avatar" width="400" height="400" loading="lazy">
+                            
+                        @endif
                         <div>
                             <h6 class="text-lg font-medium text-gray-700 dark:text-white">{{ $item->name }}</h6>
                             <p class="text-sm text-gray-500 dark:text-gray-300">{{ $item->title }}</p>

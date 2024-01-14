@@ -11,7 +11,7 @@
             loading="lazy"
             width="400"
             height="400"
-            src="./images/avatars/avatar.webp"
+            src="https://www.bestdent.com.tr/wp-content/uploads/2019/09/dis-v13.jpg"
             alt="member photo"
             class="h-8 w-8 rounded-full object-cover"
           />
@@ -19,7 +19,7 @@
             loading="lazy"
             width="200"
             height="200"
-            src="./images/avatars/avatar-2.webp"
+            src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQp5xxfdVvd2gRJeE-V9DTjUu5gj65tUWjJ1IU7tkheaSil0lDeGFyuCZOD9T1m"
             alt="member photo"
             class="h-12 w-12 rounded-full object-cover"
           />
@@ -27,7 +27,7 @@
             loading="lazy"
             width="200"
             height="200"
-            src="./images/avatars/avatar-3.webp"
+            src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRnFE1_XAqdfOpTtLC3KlhOWSXOSxxbpATRaV3ACkbXSjqlXWGLSs30z8DSCrji"
             alt="member photo"
             class="z-10 h-16 w-16 rounded-full object-cover"
           />
@@ -35,7 +35,7 @@
             loading="lazy"
             width="200"
             height="200"
-            src="./images/avatars/avatar-4.webp"
+            src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTNziplgoMY76qNUeWdLTy6hjFigm2Ze6HQ4adFURpPtQ4n9j6sFEEZEuHtrYFQ"
             alt="member photo"
             class="relative h-12 w-12 rounded-full object-cover"
           />
@@ -43,15 +43,15 @@
             loading="lazy"
             width="200"
             height="200"
-            src="./images/avatars/avatar-1.webp"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-M2emJd0_GM1V8r8bgQjd_X2MYZhWqMTLJRa0QIfjtJ9DvH_eEoN8_wdVCCkl"
             alt="member photo"
             class="h-8 w-8 rounded-full object-cover"
           />
         </div>
         <div class="mt-6 m-auto space-y-6 md:w-8/12 lg:w-7/12">
-          <h1 class="text-center text-4xl font-bold text-gray-800 dark:text-white md:text-5xl">Get Started now</h1>
+          <h1 class="text-center text-4xl font-bold text-gray-800 dark:text-white md:text-5xl">Hadi Başlayalım.</h1>
           <p class="text-center text-xl text-gray-600 dark:text-gray-300">
-            Be part of millions people around the world using tailus in modern User Interfaces.
+            Konuşmak bazı şeyleri çözer, aramıza davetlisin.
           </p>
           <div class="flex flex-wrap justify-center gap-6">
             <a
@@ -59,7 +59,7 @@
                 class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
               >
                 <span class="relative text-base font-semibold text-white dark:text-dark"
-                  >Get Started</span
+                  >Üye Ol</span
                 >
               </a>
               <a
@@ -68,7 +68,7 @@
               >
                 <span
                   class="relative text-base font-semibold text-primary dark:text-white"
-                  >More about</span
+                  >Daha fazla</span
                 >
             </a>
           </div>
