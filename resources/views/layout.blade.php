@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="generator" content={{ config('app.name') }} />
     <meta name="description" content="{{ config('app.name') }}">
     <title>{{ config('app.name') }}</title>
 
